@@ -1,0 +1,49 @@
+<%- include ("../partials/header") %>
+
+    <div class="jumbotron">
+        <h1>Edit <%= campground.name %></h1>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-lg-3"></div>
+        <div class="col-md-8 col-lg-6">
+            <div class="card p-4">
+                <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label for="nameinput">Name</label>
+                        <input class="form-control mb-4" type="text" 
+							   name="campground[name]" id="namelinput" value="<%= campground.name %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageinput">Image URL</label>
+                        <input class="form-control mb-3" type="text" 
+							   name="campground[image]" id="imageinput" value="<%= campground.image %>">
+                    </div>
+					<div class="form-group">
+                        <label for="descriptionInput">Description</label>
+                        <input class="form-control mb-3" 
+							   type="text" name="campground[description]" 
+							   id="descriptionInput" 
+							   value="<%= campground.description %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="priceinput">Price</label>
+                        <input class="form-control mb-3" type="number" 
+                                name="campground[price]" value="<%= campground.price %>" 
+                                id="priceinput" min="0.01" step="0.01">
+                    </div>
+                        <button class="btn btn-primary mb-4">Submit</button>
+                </form>
+            </div>
+            <div class="btn btn-info mt-4">
+                <a class="my-2 text-light" href="/campgrounds">Back</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+    
+</div>
+
+<%- include ("../partials/footer") %>
